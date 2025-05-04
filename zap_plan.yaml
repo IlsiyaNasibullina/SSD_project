@@ -1,0 +1,73 @@
+env:
+  contexts:
+  - name: Authentication Test
+    urls:
+    - http://127.0.0.1:8081
+    includePaths:
+    - http://127.0.0.1:8081.*
+    authentication:
+      method: browser
+      parameters:
+        loginPageUrl: http://127.0.0.1:8081/login.php
+        loginPageWait: 2
+        browserId: firefox
+      verification:
+        method: poll
+        loggedInRegex: \Q 200 OK\E
+        loggedOutRegex: \Q 302 Found\E
+        pollFrequency: 60
+        pollUnits: requests
+        pollUrl: http://127.0.0.1:8081/index.php
+        pollPostData: ""
+    sessionManagement:
+      method: headers
+      parameters:
+        Cookie: "PHPSESSID={%cookie:PHPSESSID%}; security=low"
+    technology: {}
+    structure: {}
+    users:
+    - name: admin
+      credentials:
+        password: password
+        username: admin
+  - name: default
+    urls:
+    - http://127.0.0.1:8081
+    technology: {}
+    structure: {}
+  parameters: {}
+jobs:
+- type: passiveScan-config
+  parameters: {}
+- type: spider
+  parameters:
+    context: Authentication Test
+    user: admin
+    parseDsStore: null
+  tests:
+  - name: At least 100 URLs found
+    type: stats
+    onFail: INFO
+    statistic: automation.spider.urls.added
+    operator: '>='
+    value: 100
+- type: spiderAjax
+  parameters:
+    context: Authentication Test
+    user: admin
+    browserId: null
+  tests:
+  - name: At least 100 URLs found
+    type: stats
+    onFail: INFO
+    statistic: spiderAjax.urls.added
+    operator: '>='
+    value: 100
+- type: passiveScan-wait
+  parameters: {}
+- type: report
+  parameters:
+    reportTitle: ZAP by Checkmarx Scanning Report
+- type: exitStatus
+  parameters: {}
+
