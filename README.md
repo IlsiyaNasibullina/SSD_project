@@ -56,7 +56,7 @@ More details about ZAP scan plan can be found in `zap_plan.yaml` file. This impr
 - Cross-domain script inclusions
 - More instances of missing security headers
 
-Full report can be found in `2025-05-03-ZAP-Report-plan.html`. Video result of running ZAP plan can be found in `zap_before_fix.mov`
+Full report can be found in `2025-05-03-ZAP-Report-plan.html`. Video result of running ZAP plan can be found in `img/zap_before_fix.mov`
 
 3. Mitigation and Re-Scanning
 
@@ -65,7 +65,7 @@ After addressing several vulnerabilities, including:
 - Adding secure response headers (Content-Security-Policy, X-Frame-Options)
 - Restricting access to static asset directories
 
-The results showed a reduced set of 17 vulnerabilities, confirming that mitigation steps were effective. Full report can be found in `2025-05-03-ZAP-Report-less_vuln.html`. Video result of running ZAP plan can be found in `zap_after_fix.mov`
+The results showed a reduced set of 17 vulnerabilities, confirming that mitigation steps were effective. Full report can be found in `2025-05-03-ZAP-Report-less_vuln.html`. Video result of running ZAP plan can be found in `img/zap_after_fix.mov`
 
 ## Results and Discussion
 
@@ -79,9 +79,9 @@ To prevent users from listing directory contents and reduce error-based informat
 
 ```yaml
 <Directory /var/www/>
-	Options -Indexes 
-	AllowOverride None
-	Require all granted
+    Options -Indexes 
+    AllowOverride None
+    Require all granted
 </Directory>
 ```
 This disables directory indexing and ensures that only explicitly allowed directories are accessible.
