@@ -40,7 +40,7 @@ This served as a baseline scan and confirmed that DVWA was exposed to common web
 
 To access authenticated sections of DVWA, the ZAP Authentication Tester was used. ZAP context was created to maintain the authenticated session. 
 
-![](./img/Запись%20экрана%202025-05-03%20в%2013.26.58.mov)
+![](./img/Запись%20экрана%202025-05-03%20в%2013.26.58.gif)
 
 A test plan was then defined with the following steps:
 
