@@ -38,9 +38,7 @@ This served as a baseline scan and confirmed that DVWA was exposed to common web
 
 2. Authenticated Scan with Defined Automation Plan
 
-To access authenticated sections of DVWA, the ZAP Authentication Tester was used. ZAP context was created to maintain the authenticated session. 
-
-![](./img/Запись%20экрана%202025-05-03%20в%2013.26.58.gif)
+To access authenticated sections of DVWA, the ZAP Authentication Tester was used. ZAP context was created to maintain the authenticated session. Video can be found in `img/authenticated_tester.mov`
 
 A test plan was then defined with the following steps:
 
@@ -58,9 +56,7 @@ More details about ZAP scan plan can be found in `zap_plan.yaml` file. This impr
 - Cross-domain script inclusions
 - More instances of missing security headers
 
-Full report can be found in `2025-05-03-ZAP-Report-plan.html`. Video result of running ZAP plan:
-
-![](./img/Запись%20экрана%202025-05-03%20в%2013.30.44.mov)
+Full report can be found in `2025-05-03-ZAP-Report-plan.html`. Video result of running ZAP plan can be found in `zap_before_fix.mov`
 
 3. Mitigation and Re-Scanning
 
@@ -69,9 +65,7 @@ After addressing several vulnerabilities, including:
 - Adding secure response headers (Content-Security-Policy, X-Frame-Options)
 - Restricting access to static asset directories
 
-The results showed a reduced set of 17 vulnerabilities, confirming that mitigation steps were effective. Full report can be found in `2025-05-03-ZAP-Report-less_vuln.html`. Video result of running ZAP plan:
-
-![](./img/Запись%20экрана%202025-05-04%20в%2011.24.01.mov)
+The results showed a reduced set of 17 vulnerabilities, confirming that mitigation steps were effective. Full report can be found in `2025-05-03-ZAP-Report-less_vuln.html`. Video result of running ZAP plan can be found in `zap_after_fix.mov`
 
 ## Results and Discussion
 
